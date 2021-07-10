@@ -6,6 +6,7 @@ Feature: Travelocity bookings
   @SuccessfulScenario
   Scenario: The user books a one-way flight
     Given The actor "traveler" is in the Travelocity home page
+    When He tries to book a one-way flight from "Medellin" to "Cartagena" for 2 "adults" and 7 days from today
 
   @SuccessfulScenario
   Scenario: The user books a one-way flight making different filters

@@ -36,7 +36,7 @@ public class SearchAOneWay implements Task {
     @Step("{0} tries to book a one-way flight from #originCity to #destinationCity for #travelersNumber #typeOfTraveler and #daysToDepartur from today")
     public <T extends Actor> void performAs(T actor) {
 
-        String dateForDepartureFormatted = getDateFromToday(daysToDeparture);
+        String dateForDepartureFormatted = getDateFromToday(daysToDeparture, "MMM d, yyyy");
 
         actor.attemptsTo(
                 WaitUntil.the(FLIGHTS_TAB, isVisible()),
@@ -53,6 +53,7 @@ public class SearchAOneWay implements Task {
         actor.remember("originCity", originCity);
         actor.remember("destinationCity", destinationCity);
         actor.remember("travelersNumber", travelersNumber);
+        actor.remember("daysToDeparture", daysToDeparture);
 
     }
 

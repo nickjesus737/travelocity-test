@@ -16,7 +16,7 @@ import static co.com.devco.certification.userinterfaces.Travelocity.FLIGHTS_TAB;
 import static co.com.devco.certification.utils.Utils.getDateFromToday;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class BookAOneWay implements Task {
+public class SearchAOneWay implements Task {
 
     private final String originCity;
     private final String destinationCity;
@@ -24,7 +24,7 @@ public class BookAOneWay implements Task {
     private final String typeOfTraveler;
     private final int daysToDeparture;
 
-    public BookAOneWay(String originCity, String destinationCity, int travelersNumber, String typeOfTraveler, int daysToDeparture) {
+    public SearchAOneWay(String originCity, String destinationCity, int travelersNumber, String typeOfTraveler, int daysToDeparture) {
         this.originCity = originCity;
         this.destinationCity = destinationCity;
         this.travelersNumber = travelersNumber;
@@ -48,12 +48,15 @@ public class BookAOneWay implements Task {
                 SelectTheTravelers.number(typeOfTraveler, travelersNumber),
                 SetTheDate.onTheInput(dateForDepartureFormatted, DEPARTING_DATE_INPUT),
                 Click.on(SEARCH_FLIGHT_BUTTON)
-
         );
+
+        actor.remember("originCity", originCity);
+        actor.remember("destinationCity", destinationCity);
+        actor.remember("travelersNumber", travelersNumber);
 
     }
 
-    public static BookAOneWay trip(String originCity, String destinationCity, int travelersNumber, String typeOfTraveler, int daysToDeparture){
-        return Tasks.instrumented(BookAOneWay.class, originCity, destinationCity, travelersNumber, typeOfTraveler, daysToDeparture);
+    public static SearchAOneWay trip(String originCity, String destinationCity, int travelersNumber, String typeOfTraveler, int daysToDeparture){
+        return Tasks.instrumented(SearchAOneWay.class, originCity, destinationCity, travelersNumber, typeOfTraveler, daysToDeparture);
     }
 }

@@ -17,4 +17,6 @@ public class Travelocity {
     public static final Target CHILDREN_COUNT = Target.the("add children button").locatedBy("//input[@id='child-input-0']");
     public static final Target TRAVELERS_DONE_BUTTON = Target.the("add travelers done button").locatedBy("//button[@data-testid='guests-done-button']");
 
+    public static final Target ERROR_MESSAGE = Target.the("error message in the page").locatedBy("//div[@data-testid='lob-error-summary']//h3");
+
 }

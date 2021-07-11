@@ -1,11 +1,13 @@
 package co.com.devco.certification.stepdefinitions;
 
 import co.com.devco.certification.exceptions.flights.BookFlightException;
-import co.com.devco.certification.exceptions.flights.BookStayException;
+import co.com.devco.certification.exceptions.stays.BookStayException;
+import co.com.devco.certification.questions.TheError;
 import co.com.devco.certification.questions.TheFlight;
 import co.com.devco.certification.questions.TheStay;
 import co.com.devco.certification.tasks.OpenThe;
 import co.com.devco.certification.tasks.flights.*;
+import co.com.devco.certification.tasks.stays.BookAStay;
 import co.com.devco.certification.tasks.stays.BookTheHotel;
 import co.com.devco.certification.tasks.stays.SearchAStay;
 import co.com.devco.certification.tasks.stays.SelectTheFirstRecommended;
@@ -18,7 +20,7 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
 import static co.com.devco.certification.exceptions.flights.BookFlightException.BOOK_INCONSISTENT_INFORMATION_MESSAGE;
-import static co.com.devco.certification.exceptions.flights.BookStayException.BOOK_STAY_INCONSISTENT_INFORMATION_MESSAGE;
+import static co.com.devco.certification.exceptions.stays.BookStayException.BOOK_STAY_INCONSISTENT_INFORMATION_MESSAGE;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.*;
 
@@ -106,6 +108,27 @@ public class TravelocityBookingsStepDefinition {
     public void heShouldSeeThatTheStayHasTheRightTravelersDatesAndPrice() {
         theActorInTheSpotlight().should(
                 seeThat(TheStay.hasTheRightInformation()).orComplainWith(BookStayException.class, BOOK_STAY_INCONSISTENT_INFORMATION_MESSAGE)
+        );
+    }
+
+    @When("He tries to book a flight without completing the information")
+    public void heTriesToBookAFlightWithoutCompletingTheInformation() {
+        theActorInTheSpotlight().attemptsTo(
+                BookAFlight.withoutCompletingTheInformation()
+        );
+    }
+
+    @Then("He should see an error message with the text {string}")
+    public void heShouldSeeAnErrorMessageWithTheText(String message) {
+        theActorInTheSpotlight().should(
+                seeThat(TheError.hasTheRightMessage(message))
+        );
+    }
+
+    @When("He tries to book a stay without completing the information")
+    public void heTriesToBookAStayWithoutCompletingTheInformation() {
+        theActorInTheSpotlight().attemptsTo(
+                BookAStay.withoutCompletingTheInformation()
         );
     }
 }

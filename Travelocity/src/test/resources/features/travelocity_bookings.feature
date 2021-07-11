@@ -27,6 +27,12 @@ Feature: Travelocity bookings
 
   @FailedScenario
   Scenario: The user tries to book a flight without completing the information
+    Given The actor "traveler" is in the Travelocity home page
+    When He tries to book a flight without completing the information
+    Then He should see an error message with the text "To continue, please correct the 2 errors below."
 
   @FailedScenario
-  Scenario: The user tries to book a flight with the wrong information
+  Scenario: The user tries to book a stay without completing the information
+    Given The actor "traveler" is in the Travelocity home page
+    When He tries to book a stay without completing the information
+    Then He should see an error message with the text "To continue, please correct the error below."

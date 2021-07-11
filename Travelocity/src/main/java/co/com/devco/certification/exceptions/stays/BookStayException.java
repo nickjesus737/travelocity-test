@@ -1,4 +1,4 @@
-package co.com.devco.certification.exceptions.flights;
+package co.com.devco.certification.exceptions.stays;
 
 public class BookStayException extends AssertionError{
 

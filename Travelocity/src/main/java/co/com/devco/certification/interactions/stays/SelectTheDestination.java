@@ -8,7 +8,7 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 
-import static co.com.devco.certification.userinterfaces.StaysTab.*;
+import static co.com.devco.certification.userinterfaces.stays.StaysTab.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class SelectTheDestination implements Interaction {

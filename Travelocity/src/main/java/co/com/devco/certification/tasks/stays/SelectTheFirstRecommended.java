@@ -9,8 +9,8 @@ import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 
-import static co.com.devco.certification.userinterfaces.StaysResults.FIRST_OPTION_IN_STAYS_RESULTS;
-import static co.com.devco.certification.userinterfaces.StaysResults.SORTING_OPTIONS;
+import static co.com.devco.certification.userinterfaces.stays.StaysResults.FIRST_OPTION_IN_STAYS_RESULTS;
+import static co.com.devco.certification.userinterfaces.stays.StaysResults.SORTING_OPTIONS;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class SelectTheFirstRecommended implements Task {

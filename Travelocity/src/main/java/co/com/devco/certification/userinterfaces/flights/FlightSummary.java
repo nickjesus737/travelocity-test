@@ -1,4 +1,4 @@
-package co.com.devco.certification.userinterfaces;
+package co.com.devco.certification.userinterfaces.flights;
 
 import net.serenitybdd.screenplay.targets.Target;
 

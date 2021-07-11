@@ -1,6 +1,7 @@
 package co.com.devco.certification.stepdefinitions;
 
 import co.com.devco.certification.exceptions.flights.BookFlightException;
+import co.com.devco.certification.exceptions.flights.BookStayException;
 import co.com.devco.certification.questions.TheFlight;
 import co.com.devco.certification.questions.TheStay;
 import co.com.devco.certification.tasks.OpenThe;
@@ -17,6 +18,7 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
 import static co.com.devco.certification.exceptions.flights.BookFlightException.BOOK_INCONSISTENT_INFORMATION_MESSAGE;
+import static co.com.devco.certification.exceptions.flights.BookStayException.BOOK_STAY_INCONSISTENT_INFORMATION_MESSAGE;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.*;
 
@@ -103,7 +105,7 @@ public class TravelocityBookingsStepDefinition {
     @Then("he should see that the stay has the right travelers, dates and price")
     public void heShouldSeeThatTheStayHasTheRightTravelersDatesAndPrice() {
         theActorInTheSpotlight().should(
-                seeThat(TheStay.hasTheRightInformation())
+                seeThat(TheStay.hasTheRightInformation()).orComplainWith(BookStayException.class, BOOK_STAY_INCONSISTENT_INFORMATION_MESSAGE)
         );
     }
 }

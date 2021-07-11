@@ -1,4 +1,4 @@
-package co.com.devco.certification.userinterfaces;
+package co.com.devco.certification.userinterfaces.stays;
 
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;

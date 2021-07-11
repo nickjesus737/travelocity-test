@@ -11,9 +11,9 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 
-import static co.com.devco.certification.userinterfaces.FlightsTab.*;
 import static co.com.devco.certification.userinterfaces.Travelocity.DEPARTING_DATE_INPUT;
 import static co.com.devco.certification.userinterfaces.Travelocity.FLIGHTS_TAB;
+import static co.com.devco.certification.userinterfaces.flights.FlightsTab.*;
 import static co.com.devco.certification.utils.Utils.getDateFormatted;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 

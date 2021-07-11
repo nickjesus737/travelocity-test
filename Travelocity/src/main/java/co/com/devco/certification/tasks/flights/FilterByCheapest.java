@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 
-import static co.com.devco.certification.userinterfaces.FlightsResults.SORTING_OPTIONS;
+import static co.com.devco.certification.userinterfaces.flights.FlightsResults.SORTING_OPTIONS;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class FilterByCheapest implements Task {

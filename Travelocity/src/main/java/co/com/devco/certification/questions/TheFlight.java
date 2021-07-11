@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.List;
 
-import static co.com.devco.certification.userinterfaces.FlightSummary.*;
+import static co.com.devco.certification.userinterfaces.flights.FlightSummary.*;
 import static co.com.devco.certification.utils.Utils.getDateFormatted;
 import static co.com.devco.certification.utils.Utils.getTimeSplatted;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;

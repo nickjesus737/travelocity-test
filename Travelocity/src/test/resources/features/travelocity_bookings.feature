@@ -10,7 +10,7 @@ Feature: Travelocity bookings
     And He Books the flight
     Then he should see that the flight has the right origin, destination, travelers and price
 
-  #@SuccessfulScenario
+  @SuccessfulScenario
   Scenario: The user books a one-way flight making different filters
     Given The actor "traveler" is in the Travelocity home page
     When He tries to book a one-way flight from "Medellin" to "Cartagena" for 2 "adults" and 14 days from today

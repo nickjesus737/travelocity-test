@@ -8,7 +8,7 @@ import net.thucydides.core.annotations.Step;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static co.com.devco.certification.userinterfaces.FlightsResults.FLIGHT_DETAILS_FINAL_PRICE;
+import static co.com.devco.certification.userinterfaces.flights.FlightsResults.FLIGHT_DETAILS_FINAL_PRICE;
 
 public class GetTheTotal implements Interaction {
 

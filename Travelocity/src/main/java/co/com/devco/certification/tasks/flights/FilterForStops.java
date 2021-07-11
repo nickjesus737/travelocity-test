@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 
-import static co.com.devco.certification.userinterfaces.FlightsResults.*;
+import static co.com.devco.certification.userinterfaces.flights.FlightsResults.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class FilterForStops implements Task {

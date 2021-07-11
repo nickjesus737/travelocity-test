@@ -4,7 +4,7 @@ import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static co.com.devco.certification.userinterfaces.StaysSummary.*;
+import static co.com.devco.certification.userinterfaces.stays.StaysSummary.*;
 import static co.com.devco.certification.utils.Utils.getDateFormatted;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 

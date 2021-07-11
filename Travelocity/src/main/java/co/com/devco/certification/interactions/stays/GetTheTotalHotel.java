@@ -8,8 +8,8 @@ import net.thucydides.core.annotations.Step;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static co.com.devco.certification.userinterfaces.StaysResults.STAY_DETAILS_FINAL_PRICE;
-import static co.com.devco.certification.userinterfaces.StaysResults.STAY_DETAILS_FINAL_PRICE_1;
+import static co.com.devco.certification.userinterfaces.stays.StaysResults.STAY_DETAILS_FINAL_PRICE;
+import static co.com.devco.certification.userinterfaces.stays.StaysResults.STAY_DETAILS_FINAL_PRICE_1;
 
 public class GetTheTotalHotel implements Interaction {
 

@@ -9,9 +9,9 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static co.com.devco.certification.userinterfaces.StaysTab.*;
 import static co.com.devco.certification.userinterfaces.Travelocity.DEPARTING_DATE_INPUT;
 import static co.com.devco.certification.userinterfaces.Travelocity.STAYS_TAB;
+import static co.com.devco.certification.userinterfaces.stays.StaysTab.*;
 import static co.com.devco.certification.utils.Utils.getDateFormatted;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 

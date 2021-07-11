@@ -12,7 +12,7 @@ import net.thucydides.core.annotations.Step;
 
 import java.util.List;
 
-import static co.com.devco.certification.userinterfaces.StaysResults.*;
+import static co.com.devco.certification.userinterfaces.stays.StaysResults.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class BookTheHotel implements Task {

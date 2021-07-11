@@ -12,8 +12,9 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 
 import static co.com.devco.certification.userinterfaces.FlightsTab.*;
+import static co.com.devco.certification.userinterfaces.Travelocity.DEPARTING_DATE_INPUT;
 import static co.com.devco.certification.userinterfaces.Travelocity.FLIGHTS_TAB;
-import static co.com.devco.certification.utils.Utils.getDateFromToday;
+import static co.com.devco.certification.utils.Utils.getDateFormatted;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class SearchAOneWay implements Task {
@@ -36,7 +37,7 @@ public class SearchAOneWay implements Task {
     @Step("{0} tries to book a one-way flight from #originCity to #destinationCity for #travelersNumber #typeOfTraveler and #daysToDepartur from today")
     public <T extends Actor> void performAs(T actor) {
 
-        String dateForDepartureFormatted = getDateFromToday(daysToDeparture, "MMM d, yyyy");
+        String dateForDepartureFormatted = getDateFormatted(daysToDeparture, "MMM d, yyyy");
 
         actor.attemptsTo(
                 WaitUntil.the(FLIGHTS_TAB, isVisible()),
@@ -45,7 +46,7 @@ public class SearchAOneWay implements Task {
                 Click.on(ONE_WAY_OPTION),
                 SelectTheOrigin.city(originCity),
                 SelectTheDestination.city(destinationCity),
-                SelectTheTravelers.number(typeOfTraveler, travelersNumber),
+                SelectTheTravelers.number(typeOfTraveler, travelersNumber, NUMBER_OF_TRAVELERS_DIV),
                 SetTheDate.onTheInput(dateForDepartureFormatted, DEPARTING_DATE_INPUT),
                 Click.on(SEARCH_FLIGHT_BUTTON)
         );

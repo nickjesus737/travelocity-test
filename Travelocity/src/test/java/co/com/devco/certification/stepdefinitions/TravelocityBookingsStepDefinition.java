@@ -2,8 +2,12 @@ package co.com.devco.certification.stepdefinitions;
 
 import co.com.devco.certification.exceptions.flights.BookFlightException;
 import co.com.devco.certification.questions.TheFlight;
+import co.com.devco.certification.questions.TheStay;
 import co.com.devco.certification.tasks.OpenThe;
 import co.com.devco.certification.tasks.flights.*;
+import co.com.devco.certification.tasks.stays.BookTheHotel;
+import co.com.devco.certification.tasks.stays.SearchAStay;
+import co.com.devco.certification.tasks.stays.SelectTheFirstRecommended;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -39,7 +43,7 @@ public class TravelocityBookingsStepDefinition {
     public void heTriesToBookTheCheapestFlightOneWayFlightFromToForAndDaysFromToday(String originCity, String destinationCity, int travelersNumber, String typeOfTraveler, int daysToDeparture) {
         theActorInTheSpotlight().attemptsTo(
                 SearchAOneWay.trip(originCity, destinationCity, travelersNumber, typeOfTraveler, daysToDeparture),
-                SelectTheCheapestFlight.fromTheResults()
+                FilterByCheapest.flight()
         );
     }
 
@@ -78,6 +82,28 @@ public class TravelocityBookingsStepDefinition {
         theActorInTheSpotlight().should(
                 seeThat(TheFlight.hasTheRightInformation()).orComplainWith(BookFlightException.class, BOOK_INCONSISTENT_INFORMATION_MESSAGE),
                 seeThat(TheFlight.hasTheRightFilter()).orComplainWith(BookFlightException.class, BOOK_INCONSISTENT_INFORMATION_MESSAGE)
+        );
+    }
+
+    @When("He tries to book the first recommended stay to {string} for {int} {string} for {int} days and {int} days from today")
+    public void heTriesToBookTheFirstRecommendedStayToForForDaysAndDaysFromToday(String destinationCity, int travelersNumber, String typeOfTraveler, int daysOfTrip, int daysToDeparture) {
+        theActorInTheSpotlight().attemptsTo(
+                SearchAStay.trip(destinationCity, travelersNumber, typeOfTraveler, daysOfTrip, daysToDeparture),
+                SelectTheFirstRecommended.hotel()
+        );
+    }
+
+    @And("He Books the Stay")
+    public void heBooksTheStay() {
+        theActorInTheSpotlight().attemptsTo(
+                BookTheHotel.room()
+        );
+    }
+
+    @Then("he should see that the stay has the right travelers, dates and price")
+    public void heShouldSeeThatTheStayHasTheRightTravelersDatesAndPrice() {
+        theActorInTheSpotlight().should(
+                seeThat(TheStay.hasTheRightInformation())
         );
     }
 }

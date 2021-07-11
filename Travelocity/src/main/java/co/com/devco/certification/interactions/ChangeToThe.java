@@ -10,7 +10,7 @@ import net.thucydides.core.annotations.Step;
 public class ChangeToThe implements Interaction {
 
     @Override
-    @Step("{0} switches to the flight summary window")
+    @Step("{0} switches to the new window")
     public <T extends Actor> void performAs(T actor) {
 
         String currentHandle = BrowseTheWeb.as(actor).getDriver().getWindowHandle();
@@ -20,7 +20,7 @@ public class ChangeToThe implements Interaction {
         );
     }
 
-    public static ChangeToThe flightSummaryWindow(){
+    public static ChangeToThe newWindow(){
         return Tasks.instrumented(ChangeToThe.class);
     }
 

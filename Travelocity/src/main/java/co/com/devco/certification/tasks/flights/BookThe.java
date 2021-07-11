@@ -33,7 +33,7 @@ public class BookThe implements Task {
         }
 
         actor.attemptsTo(
-                ChangeToThe.flightSummaryWindow()
+                ChangeToThe.newWindow()
         );
     }
 

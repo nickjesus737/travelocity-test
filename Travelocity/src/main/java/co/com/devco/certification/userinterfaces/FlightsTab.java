@@ -16,14 +16,7 @@ public class FlightsTab {
     public static final Target DESTINATION_INPUT = Target.the("destination input element").located(By.id("location-field-leg1-destination"));
     public static final Target DESTINATION_RESULTS_ELEMENT = Target.the("destination city first result element").locatedBy("//ul[@data-stid='location-field-leg1-destination-results']//li[1]");
 
-    public static final Target DEPARTING_DATE_INPUT = Target.the("departing date input").locatedBy("//button[@id='d1-btn']");
-    public static final Target CALENDAR_SELECTOR = Target.the("calendar selector").locatedBy("//button[contains(@aria-label, '{0}')]");
-    public static final Target CALENDAR_SELECTOR_DONE_BUTTON = Target.the("calendar done button").locatedBy("//button[@data-stid='apply-date-picker']");
-
     public static final Target NUMBER_OF_TRAVELERS_DIV = Target.the("number of travelers div").located(By.id("adaptive-menu"));
-    public static final Target ADD_ADULTS_BUTTON = Target.the("add adults button").locatedBy("//input[@id='adult-input-0']//following-sibling::button");
-    public static final Target ADD_CHILDREN_BUTTON = Target.the("add children button").locatedBy("//input[@id='child-input-0']//following-sibling::button");
-    public static final Target TRAVELERS_DONE_BUTTON = Target.the("add travelers done button").locatedBy("//button[@data-testid='guests-done-button']");
 
     public static final Target SEARCH_FLIGHT_BUTTON = Target.the("search flight button").locatedBy("//button[@type='submit']");
 

@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class Utils {
 
-    public static String getDateFromToday(int numberOfDays, String format){
+    public static String getDateFormatted(int numberOfDays, String format){
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern(format, Locale.US);
         LocalDateTime now = LocalDateTime.now().plusDays(numberOfDays);

@@ -8,17 +8,19 @@ import net.serenitybdd.screenplay.targets.Target;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 
-import static co.com.devco.certification.userinterfaces.FlightsTab.*;
+import static co.com.devco.certification.userinterfaces.Travelocity.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class SelectTheTravelers implements Interaction {
 
-    private String typeOfTraveler;
-    private int travelersNumber;
+    private final String typeOfTraveler;
+    private final int travelersNumber;
+    private final Target travelerDiv;
 
-    public SelectTheTravelers(String typeOfTraveler, int travelersNumber) {
+    public SelectTheTravelers(String typeOfTraveler, int travelersNumber, Target travelerDiv) {
         this.typeOfTraveler = typeOfTraveler;
         this.travelersNumber = travelersNumber;
+        this.travelerDiv = travelerDiv;
     }
 
     @Override
@@ -26,23 +28,28 @@ public class SelectTheTravelers implements Interaction {
     public <T extends Actor> void performAs(T actor) {
 
         Target travelerType = null;
+        Target travelerCount = null;
 
         if (typeOfTraveler.equals("adults")){
             travelerType = ADD_ADULTS_BUTTON;
+            travelerCount = ADULTS_COUNT;
         }else if (typeOfTraveler.equals("children")){
             travelerType = ADD_CHILDREN_BUTTON;
+            travelerCount = CHILDREN_COUNT;
         }
 
         actor.attemptsTo(
-                WaitUntil.the(NUMBER_OF_TRAVELERS_DIV, isVisible()),
-                Click.on(NUMBER_OF_TRAVELERS_DIV),
+                WaitUntil.the(travelerDiv, isVisible()),
+                Click.on(travelerDiv),
                 WaitUntil.the(travelerType, isVisible())
         );
 
-        for (int i = 1; i < travelersNumber; i++){
-            actor.attemptsTo(
-                    Click.on(travelerType)
-            );
+        if (Integer.parseInt(travelerCount.resolveFor(actor).getValue()) < travelersNumber){
+            for (int i = 1; i < travelersNumber; i++){
+                actor.attemptsTo(
+                        Click.on(travelerType)
+                );
+            }
         }
 
         actor.attemptsTo(
@@ -51,7 +58,7 @@ public class SelectTheTravelers implements Interaction {
 
     }
 
-    public static SelectTheTravelers number(String typeOfTraveler, int travelersNumber){
-        return Tasks.instrumented(SelectTheTravelers.class, typeOfTraveler, travelersNumber);
+    public static SelectTheTravelers number(String typeOfTraveler, int travelersNumber, Target travelerDiv){
+        return Tasks.instrumented(SelectTheTravelers.class, typeOfTraveler, travelersNumber, travelerDiv);
     }
 }

@@ -10,10 +10,10 @@ import net.thucydides.core.annotations.Step;
 import static co.com.devco.certification.userinterfaces.FlightsResults.SORTING_OPTIONS;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class SelectTheCheapestFlight implements Task {
+public class FilterByCheapest implements Task {
 
     @Override
-    @Step("{0} selects the cheapest flight from the results of the search")
+    @Step("{0} filters the results by cheapest")
     public <T extends Actor> void performAs(T actor) {
 
         actor.attemptsTo(
@@ -28,7 +28,7 @@ public class SelectTheCheapestFlight implements Task {
 
     }
 
-    public static SelectTheCheapestFlight fromTheResults() {
-        return Tasks.instrumented(SelectTheCheapestFlight.class);
+    public static FilterByCheapest flight() {
+        return Tasks.instrumented(FilterByCheapest.class);
     }
 }

@@ -8,7 +8,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import java.util.List;
 
 import static co.com.devco.certification.userinterfaces.FlightSummary.*;
-import static co.com.devco.certification.utils.Utils.getDateFromToday;
+import static co.com.devco.certification.utils.Utils.getDateFormatted;
 import static co.com.devco.certification.utils.Utils.getTimeSplatted;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
@@ -24,7 +24,7 @@ public class TheFlight {
             int travelersNumber = actor.recall("travelersNumber");
             int daysToDeparture = actor.recall("daysToDeparture");
 
-            String flightDate = getDateFromToday(daysToDeparture, "EEE, MMM d");
+            String flightDate = getDateFormatted(daysToDeparture, "EEE, MMM d");
 
             actor.attemptsTo(
                     WaitUntil.the(TOTAL_PRICE, isVisible()).forNoMoreThan(20).seconds(),
